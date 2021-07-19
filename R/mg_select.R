@@ -10,11 +10,17 @@
 #' @param .handler todo
 #' @param .pagesize todo
 #' @param ._id Should the _id column be returned?
+#' @param .db todo (see documentation of mongolite::mongo)
+#' @param .url todo (see documentation of mongolite::mongo)
+#' @param .verbose todo (see documentation of mongolite::mongo)
+#' @param .options todo (see documentation of mongolite::mongo)
 #'
 #' @return A data frame with the selected columns
 mg_select <- function(table, ..., .query = "{}", .sort = "{}",
                       .skip = 0, .limit = 0, .handler = NULL,
-                      .pagesize = 1000, ._id = FALSE) {
+                      .pagesize = 1000, ._id = FALSE,
+                      .db = test, .url = "mongodb://localhost",
+                      .verbose = FALSE, .options = mongolite::ssl_options()) {
 
   .mongo_collection <- mongolite::mongo(table)
 
